@@ -1,0 +1,8 @@
+# Dawntasy — robots.txt
+# https://dawntasy.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://dawntasy.com/sitemap.xml

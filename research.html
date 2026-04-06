@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon — Dawntasy</title>
+<meta name="description" content="This page is under construction. Visit dawntasy.com to learn about Jasper Jiang — 13-year-old author, AI researcher, and composer.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --white: #FFFFFF;
+  --off-white: #F8FAFC;
+  --ghost: #F1F5F9;
+  --silver: #94A3B8;
+  --slate: #64748B;
+  --charcoal: #334155;
+  --ink: #0F172A;
+  --royal: #1E40AF;
+  --royal-deep: #1E3A8A;
+  --sky: #60A5FA;
+  --sky-light: #BFDBFE;
+  --sky-pale: #EFF6FF;
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--off-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+::selection { background: var(--sky-light); color: var(--royal-deep); }
+a { color: inherit; text-decoration: none; }
+
+/* ═══ BACKGROUND ═══ */
+.bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0;
+  animation: orbIn 2s var(--ease-out-expo) forwards;
+}
+
+.bg-orb-1 {
+  width: 500px; height: 500px;
+  background: var(--sky-pale);
+  top: -10%; right: -8%;
+  animation-delay: 0.2s;
+}
+
+.bg-orb-2 {
+  width: 400px; height: 400px;
+  background: rgba(30, 64, 175, 0.04);
+  bottom: -10%; left: -5%;
+  animation-delay: 0.5s;
+}
+
+.bg-orb-3 {
+  width: 200px; height: 200px;
+  background: rgba(96, 165, 250, 0.06);
+  top: 40%; left: 50%;
+  transform: translateX(-50%);
+  animation-delay: 0.8s;
+}
+
+@keyframes orbIn {
+  to { opacity: 1; }
+}
+
+/* ═══ GRID PATTERN ═══ */
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+}
+
+/* ═══ MAIN ═══ */
+.main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  padding: 40px 24px;
+}
+
+.container {
+  text-align: center;
+  max-width: 520px;
+  width: 100%;
+}
+
+/* ═══ LOGO ═══ */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 56px;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.8s var(--ease-out-expo) 0.15s forwards;
+}
+
+.logo img {
+  width: 32px; height: 32px; border-radius: 6px;
+}
+
+.logo span {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+/* ═══ ICON ═══ */
+.icon-wrapper {
+  width: 72px; height: 72px;
+  margin: 0 auto 32px;
+  border-radius: 20px;
+  background: var(--white);
+  border: 1px solid var(--ghost);
+  box-shadow: 0 1px 3px rgba(15,23,42,0.04), 0 8px 24px rgba(15,23,42,0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(16px) scale(0.95);
+  animation: fadeUp 0.8s var(--ease-out-expo) 0.3s forwards;
+}
+
+.icon-wrapper svg {
+  color: var(--royal);
+}
+
+/* ═══ TEXT ═══ */
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--royal);
+  background: var(--sky-pale);
+  padding: 5px 14px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeUp 0.7s var(--ease-out-expo) 0.45s forwards;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.8s var(--ease-out-expo) 0.55s forwards;
+}
+
+.subtitle {
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  color: var(--slate);
+  line-height: 1.7;
+  max-width: 420px;
+  margin: 0 auto 40px;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: fadeUp 0.8s var(--ease-out-expo) 0.65s forwards;
+}
+
+/* ═══ BUTTONS ═══ */
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: fadeUp 0.8s var(--ease-out-expo) 0.8s forwards;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  background: var(--royal);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.btn-primary:hover {
+  background: var(--royal-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(30, 64, 175, 0.3);
+}
+
+.btn-primary svg { transition: transform 0.3s ease; }
+.btn-primary:hover svg { transform: translateX(-2px); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  background: transparent;
+  color: var(--charcoal);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: 1.5px solid var(--ghost);
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.btn-ghost:hover {
+  border-color: var(--royal);
+  color: var(--royal);
+  transform: translateY(-2px);
+}
+
+/* ═══ DIVIDER ═══ */
+.divider {
+  width: 48px;
+  height: 1px;
+  background: var(--ghost);
+  margin: 40px auto 24px;
+  opacity: 0;
+  animation: fadeUp 0.6s var(--ease-out-expo) 1s forwards;
+}
+
+.note {
+  font-size: 0.82rem;
+  color: var(--silver);
+  opacity: 0;
+  animation: fadeUp 0.6s var(--ease-out-expo) 1.05s forwards;
+}
+
+.note a {
+  color: var(--royal);
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(30, 64, 175, 0.3);
+}
+
+.note a:hover { opacity: 0.7; }
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ═══ REDUCED MOTION ═══ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .bg-orb { opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg" aria-hidden="true">
+  <div class="bg-grid"></div>
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <div class="bg-orb bg-orb-3"></div>
+</div>
+
+<main class="main">
+  <div class="container">
+
+    <a href="/" class="logo" aria-label="Dawntasy — Home">
+      <img src="logo.png" alt="Dawntasy logo" width="32" height="32">
+      <span>Dawntasy</span>
+    </a>
+
+    <div class="icon-wrapper">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6V2"/><path d="m4.93 4.93 2.83 2.83"/><path d="M2 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="M12 22v-4"/><path d="m19.07 19.07-2.83-2.83"/><path d="M22 12h-4"/><path d="m19.07 4.93-2.83 2.83"/></svg>
+    </div>
+
+    <span class="badge">Under Construction</span>
+    <h1>Something's brewing.</h1>
+    <p class="subtitle">This page isn't ready yet, but it will be soon. In the meantime, there's plenty to explore back home.</p>
+
+    <div class="actions">
+      <a href="/" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back to Home
+      </a>
+      <a href="https://newsletter.dawntasy.com" class="btn-ghost" target="_blank" rel="noopener">
+        Read the Newsletter
+      </a>
+    </div>
+
+    <div class="divider"></div>
+    <p class="note">Questions? Reach out at <a href="mailto:jasperjiang@dawntasy.com">jasperjiang@dawntasy.com</a></p>
+
+  </div>
+</main>
+
+</body>
+</html>
